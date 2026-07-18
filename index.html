@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Surfer Electric — North Florida Solar &amp; Battery Backup</title>
+<meta name="description" content="Sun Surfer Electric — father-and-son solar installation and battery backup, built and tested by the people who install it. Serving Gainesville, FL and surrounding areas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4E9D2;
+    --cream-dim:#EADFC3;
+    --navy:#16324B;
+    --navy-deep:#0F2436;
+    --orange:#E67A35;
+    --orange-deep:#C85A22;
+    --teal:#3E7C93;
+    --teal-light:#8FC7D6;
+    --ink:#1C3B5A;
+    --max:1180px;
+    --serif-disp: 'Staatliches', 'Arial Narrow', sans-serif;
+    --body: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:var(--serif-disp); font-weight:400; letter-spacing:0.02em; margin:0; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+  .eyebrow{
+    font-family:var(--body); font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    font-size:0.78rem; color:var(--orange-deep);
+  }
+  section{ position:relative; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--body); font-weight:700; letter-spacing:0.03em;
+    padding:15px 30px; border-radius:100px; text-decoration:none;
+    border:2px solid var(--navy); transition:transform .15s ease, background .2s ease, color .2s ease;
+    cursor:pointer; font-size:1rem;
+  }
+  .btn-solid{ background:var(--orange); color:var(--navy-deep); border-color:var(--orange); }
+  .btn-solid:hover{ background:var(--orange-deep); border-color:var(--orange-deep); color:var(--cream); transform:translateY(-2px); }
+  .btn-outline{ background:transparent; color:var(--navy); }
+  .btn-outline:hover{ background:var(--navy); color:var(--cream); transform:translateY(-2px); }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,233,210,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(28,59,90,0.12);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:var(--max); margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .brand img{ width:46px; height:46px; border-radius:50%; }
+  .brand-text{ font-family:var(--serif-disp); font-size:1.15rem; color:var(--navy); letter-spacing:0.03em; line-height:1; }
+  .brand-text span{ display:block; font-family:var(--body); font-weight:600; font-size:0.62rem; letter-spacing:0.18em; color:var(--orange-deep); margin-top:3px; }
+  .nav-links{ display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0; }
+  .nav-links a{ text-decoration:none; font-weight:600; font-size:0.92rem; color:var(--navy); position:relative; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--orange);
+    transition:width .2s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:none; }
+  .menu-btn{ display:none; background:none; border:none; cursor:pointer; padding:8px; }
+  .menu-btn span{ display:block; width:24px; height:2px; background:var(--navy); margin:5px 0; transition:.2s; }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed; inset:70px 0 0 0; background:var(--cream); flex-direction:column;
+      padding:36px 24px; gap:22px; transform:translateX(100%); transition:transform .25s ease;
+      align-items:flex-start;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ font-size:1.3rem; }
+    .menu-btn{ display:block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 0;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-rays{
+    position:absolute; top:-30%; left:50%; transform:translateX(-50%);
+    width:1400px; height:1400px; pointer-events:none;
+    opacity:0.55;
+    animation:spin 140s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .hero-rays{ animation:none; } }
+  @keyframes spin{ to{ transform:translateX(-50%) rotate(360deg); } }
+
+  .hero-inner{
+    position:relative; z-index:2;
+    max-width:var(--max); margin:0 auto; padding:40px 24px 120px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.2vw, 4.4rem);
+    color:var(--navy-deep);
+    line-height:1.04;
+  }
+  .hero h1 em{ font-style:normal; color:var(--orange-deep); }
+  .hero p.lead{
+    font-size:1.18rem; max-width:46ch; margin:22px 0 34px; color:var(--navy);
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-badge-wrap{ position:relative; display:flex; justify-content:center; }
+  .hero-badge-wrap img{
+    width:min(380px, 90%); filter:drop-shadow(0 20px 40px rgba(20,40,60,0.28));
+  }
+  .hero-stats{
+    display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;
+  }
+  .hero-stats div{ min-width:120px; }
+  .hero-stats strong{ display:block; font-family:var(--serif-disp); font-size:1.9rem; color:var(--navy-deep); }
+  .hero-stats span{ font-size:0.82rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); font-weight:600; }
+
+  @media (max-width:900px){
+    .hero-inner{ grid-template-columns:1fr; text-align:left; padding-bottom:80px; }
+    .hero-badge-wrap{ order:-1; margin-bottom:8px; }
+    .hero-badge-wrap img{ width:220px; }
+  }
+
+  /* wave divider */
+  .wave-divider{ display:block; width:100%; line-height:0; margin-top:-2px; }
+  .wave-divider svg{ width:100%; height:auto; display:block; }
+
+  /* ---------- OUR STORY ---------- */
+  .story{
+    background:var(--navy-deep);
+    color:var(--cream);
+    padding:100px 0 120px;
+    position:relative;
+    overflow:hidden;
+  }
+  .story-rays{
+    position:absolute; right:-220px; top:-160px; width:640px; height:640px; opacity:0.10; pointer-events:none;
+  }
+  .story .wrap{ position:relative; z-index:2; }
+  .story-grid{ display:grid; grid-template-columns:0.9fr 1.4fr; gap:64px; }
+  .story-intro{ align-self:start; position:sticky; top:110px; }
+  .story-intro .eyebrow{ color:var(--orange); }
+  .story-intro h2{ font-size:clamp(2rem, 3.4vw, 2.8rem); color:var(--cream); margin-top:14px; line-height:1.12; }
+  .pull-quote{
+    margin:34px 0 0; padding-left:22px; border-left:3px solid var(--orange);
+    font-size:1.28rem; line-height:1.5; color:var(--teal-light); font-weight:600;
+  }
+  .story-body p{ font-size:1.08rem; color:rgba(244,233,210,0.92); margin:0 0 22px; }
+  .story-body p:first-child{ margin-top:0; }
+
+  .story-photo{
+    margin:0 0 34px; padding:10px 10px 16px; background:var(--cream);
+    border-radius:4px; transform:rotate(-1.2deg);
+    box-shadow:0 24px 50px -18px rgba(0,0,0,0.55);
+  }
+  .story-photo img{
+    width:100%; height:auto; border-radius:2px; display:block;
+  }
+  .story-photo figcaption{
+    margin-top:12px; text-align:center; font-family:var(--body); font-weight:600;
+    font-size:0.85rem; letter-spacing:0.03em; color:var(--navy-deep);
+  }
+  @media (max-width:600px){ .story-photo{ transform:rotate(0deg); } }
+  .story-signoff{
+    margin-top:36px; padding-top:28px; border-top:1px solid rgba(244,233,210,0.18);
+    display:flex; align-items:center; gap:16px;
+  }
+  .story-signoff img{ width:52px; height:52px; border-radius:50%; }
+  .story-signoff div span{ display:block; font-size:0.82rem; color:var(--teal-light); letter-spacing:0.04em; }
+  .story-signoff div strong{ font-family:var(--serif-disp); font-weight:400; font-size:1.15rem; letter-spacing:0.02em; }
+
+  @media (max-width:900px){
+    .story-grid{ grid-template-columns:1fr; gap:36px; }
+    .story-intro{ position:static; }
+  }
+
+  /* ---------- WHAT WE DO STRIP ---------- */
+  .strip{
+    background:var(--cream-dim);
+    padding:70px 0;
+    border-bottom:1px solid rgba(28,59,90,0.1);
+  }
+  .strip .wrap{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+  .strip-item .num{ font-family:var(--serif-disp); font-size:1.6rem; color:var(--orange-deep); }
+  .strip-item h3{ font-size:1.25rem; color:var(--navy-deep); margin:10px 0 8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .strip-item .soon{
+    font-family:var(--body); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--orange-deep); background:rgba(230,122,53,0.14); padding:4px 9px; border-radius:100px;
+  }
+  .strip-item p{ margin:0; color:var(--ink); font-size:0.98rem; }
+  @media (max-width:760px){ .strip .wrap{ grid-template-columns:1fr; } }
+
+  /* ---------- FORM ---------- */
+  .contact{
+    padding:110px 0 120px;
+    background:var(--cream);
+    position:relative;
+  }
+  .contact .wrap{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:start; }
+  .contact h2{ font-size:clamp(2rem, 3.4vw, 2.6rem); color:var(--navy-deep); margin-top:14px; line-height:1.12; }
+  .contact p.lead{ font-size:1.08rem; max-width:42ch; margin:20px 0 0; color:var(--ink); }
+  .contact-meta{ margin-top:38px; display:flex; flex-direction:column; gap:18px; }
+  .contact-meta div{ display:flex; gap:14px; align-items:flex-start; }
+  .contact-meta .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--orange); margin-top:8px; flex:none;
+  }
+  .contact-meta strong{ display:block; color:var(--navy-deep); font-size:0.95rem; }
+  .contact-meta span{ font-size:0.92rem; color:var(--teal); }
+
+  form{
+    background:var(--navy-deep); border-radius:18px; padding:40px;
+    box-shadow:0 30px 60px -20px rgba(15,36,54,0.35);
+  }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .field{ margin-bottom:18px; display:flex; flex-direction:column; gap:8px; }
+  .field label{ font-size:0.82rem; font-weight:700; letter-spacing:0.04em; color:var(--teal-light); text-transform:uppercase; }
+  .field input, .field select, .field textarea{
+    background:rgba(244,233,210,0.06); border:1px solid rgba(244,233,210,0.22);
+    border-radius:10px; padding:13px 14px; color:var(--cream); font-family:var(--body); font-size:0.98rem;
+    outline:none; transition:border-color .15s ease, background .15s ease;
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(244,233,210,0.4); }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--orange); background:rgba(244,233,210,0.1);
+  }
+  .field select option{ color:#111; }
+  .submit-row{ margin-top:6px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .submit-row .btn-solid{ border-color:var(--orange); }
+  .form-note{ font-size:0.82rem; color:rgba(244,233,210,0.55); }
+  @media (max-width:900px){
+    .contact .wrap{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+    form{ padding:28px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy-deep); color:rgba(244,233,210,0.7);
+    padding:40px 0; border-top:1px solid rgba(244,233,210,0.12);
+  }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .foot-brand{ display:flex; align-items:center; gap:12px; }
+  .foot-brand img{ width:34px; height:34px; border-radius:50%; }
+  .foot-brand strong{ font-family:var(--serif-disp); color:var(--cream); font-weight:400; letter-spacing:0.02em; }
+  footer small{ font-size:0.82rem; }
+
+  /* reveal-on-scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="Sun Surfer Electric logo">
+      <span class="brand-text">Sun Surfer Electric<span>North Florida Solar &amp; Battery</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#contact">Get a Quote</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-outline nav-cta">Get a Quote</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-rays" viewBox="0 0 400 400" aria-hidden="true">
+      <g stroke="#16324B" stroke-width="1.4" opacity="0.35">
+        <!-- radiating circuit-style rays -->
+        <line x1="200" y1="200" x2="200" y2="10"/>
+        <line x1="200" y1="200" x2="330" y2="40"/>
+        <line x1="200" y1="200" x2="390" y2="150"/>
+        <line x1="200" y1="200" x2="390" y2="260"/>
+        <line x1="200" y1="200" x2="330" y2="360"/>
+        <line x1="200" y1="200" x2="200" y2="390"/>
+        <line x1="200" y1="200" x2="70" y2="360"/>
+        <line x1="200" y1="200" x2="10" y2="260"/>
+        <line x1="200" y1="200" x2="10" y2="150"/>
+        <line x1="200" y1="200" x2="70" y2="40"/>
+        <circle cx="200" cy="10" r="3" fill="#E67A35" stroke="none"/>
+        <circle cx="390" cy="150" r="3" fill="#E67A35" stroke="none"/>
+        <circle cx="330" cy="360" r="3" fill="#E67A35" stroke="none"/>
+        <circle cx="10" cy="260" r="3" fill="#E67A35" stroke="none"/>
+        <circle cx="70" cy="40" r="3" fill="#E67A35" stroke="none"/>
+      </g>
+      <circle cx="200" cy="200" r="120" fill="none" stroke="#E67A35" stroke-width="1.2" opacity="0.25"/>
+    </svg>
+
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Gainesville, FL &amp; Surrounding Areas</p>
+        <h1>Power your home with <em>sun you can count on.</em></h1>
+        <p class="lead">Solar repair and service from a father-and-son crew who've already put solar to the test on their own home, garden, and gear. Full installation coming soon.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-solid">Request a Quote</a>
+          <a href="#story" class="btn btn-outline">Our Story</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>20+</strong><span>Years in the Trade</span></div>
+          <div><strong>2025</strong><span>Sun Surfer Founded</span></div>
+          <div><strong>2</strong><span>Generations Building It</span></div>
+        </div>
+      </div>
+      <div class="hero-badge-wrap">
+        <img src="assets/logo.jpg" alt="Sun Surfer Electric — circuit sun and wave badge">
+      </div>
+    </div>
+
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path d="M0,50 C240,110 480,0 720,40 C960,80 1200,10 1440,55 L1440,110 L0,110 Z" fill="#0F2436"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="story" id="story">
+    <svg class="story-rays" viewBox="0 0 400 400" aria-hidden="true">
+      <g stroke="#F4E9D2" stroke-width="1.4">
+        <line x1="200" y1="200" x2="200" y2="10"/>
+        <line x1="200" y1="200" x2="330" y2="40"/>
+        <line x1="200" y1="200" x2="390" y2="150"/>
+        <line x1="200" y1="200" x2="390" y2="260"/>
+        <line x1="200" y1="200" x2="330" y2="360"/>
+        <line x1="200" y1="200" x2="200" y2="390"/>
+        <line x1="200" y1="200" x2="70" y2="360"/>
+        <line x1="200" y1="200" x2="10" y2="260"/>
+        <line x1="200" y1="200" x2="10" y2="150"/>
+        <line x1="200" y1="200" x2="70" y2="40"/>
+      </g>
+    </svg>
+
+    <div class="wrap story-grid">
+      <div class="story-intro reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2>Sun Surfer Electric</h2>
+        <p class="pull-quote">"Going solar isn't just about pulling dollars from the sky. It's about being part of an energy shift that's already underway — and we're building it one panel, one battery, one household at a time."</p>
+      </div>
+
+      <div class="story-body reveal">
+        <figure class="story-photo">
+          <img src="assets/mack-zonny.webp" alt="Mack and Zonny Mical standing on a rooftop next to a freshly installed solar array">
+          <figcaption>Mack &amp; Zonny, mid-install — Gainesville, FL</figcaption>
+        </figure>
+        <p>I'm Mack Mical, and I've spent over 20 years in electrical construction — residential, commercial, industrial, controls, lighting, and for the last decade, solar. I got my start in the trade in 2005, the same year my son Zonny was born. Funny how that worked out.</p>
+        <p>In 2023, Zonny joined me as my apprentice at a local solar company. For two years we installed and serviced residential and commercial systems side by side, and I taught him everything I knew — not just the code and the wiring, but the why behind it.</p>
+        <p>By 2025, we knew it was time to build something of our own. That's how Sun Surfer Electric was born.</p>
+        <p>And solar didn't stay confined to the job site. We wired our garden for solar-powered water filtration and automatic irrigation. We built a solar generator for camping trips. We even built a solar-powered stage for our band — because once you start seeing the sun as a power source, you start finding reasons to use it everywhere. When you hire us, you're not getting a crew that shows up, installs a system, and disappears. You're getting two guys who actually believe in what they're building, because we've already built it for ourselves.</p>
+        <p>That's the passion we bring to every job — and we'd love to bring it to your home next.</p>
+
+        <div class="story-signoff">
+          <img src="assets/logo.jpg" alt="">
+          <div>
+            <strong>Mack &amp; Zonny Mical</strong>
+            <span>Founders, Sun Surfer Electric</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="strip" id="what-we-do">
+    <div class="wrap">
+      <div class="strip-item reveal">
+        <div class="num">01</div>
+        <h3>Solar Repair &amp; Service</h3>
+        <p>Existing system underperforming? We troubleshoot, repair, and service solar setups across Gainesville and the surrounding area — available now.</p>
+      </div>
+      <div class="strip-item reveal">
+        <div class="num">02</div>
+        <h3>Solar Installation <span class="soon">Coming Soon</span></h3>
+        <p>Residential solar systems designed and installed for real North Florida conditions — sized right, wired clean, built to code.</p>
+      </div>
+      <div class="strip-item reveal">
+        <div class="num">03</div>
+        <h3>Battery Backup <span class="soon">Coming Soon</span></h3>
+        <p>Keep the lights on when the grid doesn't. Battery systems that give your home real independence through storm season.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / SERVICE REQUEST -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Let's talk about your roof.</h2>
+        <p class="lead">Tell us a little about your home and what you're looking for. We'll follow up to schedule a walkthrough and put together a straightforward quote — no pressure, no runaround.</p>
+
+        <div class="contact-meta">
+          <div><span class="dot"></span><div><strong>Service Area</strong><span>Gainesville, FL &amp; surrounding cities</span></div></div>
+          <div><span class="dot"></span><div><strong>Response Time</strong><span>We typically reply within 1–2 business days</span></div></div>
+          <div><span class="dot"></span><div><strong>Built By</strong><span>Mack &amp; Zonny Mical — father and son</span></div></div>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Homeowner" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(352) 555-0123" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+          </div>
+          <div class="field">
+            <label for="service">Interested In</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Solar Repair / Service">Solar Repair / Service</option>
+              <option value="Solar Installation (Coming Soon)">Solar Installation (Coming Soon)</option>
+              <option value="Battery Backup (Coming Soon)">Battery Backup (Coming Soon)</option>
+              <option value="Not Sure Yet">Not Sure Yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="address">Property Address</label>
+          <input type="text" id="address" name="address" placeholder="Street, City, FL">
+        </div>
+
+        <div class="field">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Roof age, recent power bill, storm damage, timeline — whatever's helpful."></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-solid">Send Request</button>
+          <span class="form-note">We'll never share your info. That's a promise from two guys who hate spam too.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="assets/logo.jpg" alt="Sun Surfer Electric logo">
+      <strong>Sun Surfer Electric</strong>
+    </div>
+    <small>&copy; 2025 Sun Surfer Electric — Gainesville, FL. Est. 2025.</small>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
